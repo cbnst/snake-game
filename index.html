@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#101812">
+    <title>Snake — Tiny Arcade</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="game.js" defer></script>
+  </head>
+  <body>
+    <main class="page">
+      <header class="topbar">
+        <a class="brand" href="./" aria-label="Tiny Arcade home">
+          <span class="brand-mark" aria-hidden="true">▦</span>
+          <span>TINY ARCADE</span>
+        </a>
+        <span class="status-chip"><span class="status-dot"></span> READY TO PLAY</span>
+      </header>
+
+      <section class="game-layout" aria-labelledby="game-title">
+        <div class="game-copy">
+          <p class="eyebrow"><span>01</span> &nbsp; THE CLASSIC</p>
+          <h1 id="game-title">Snake<span>.</span></h1>
+          <p class="intro">A little game for your little corner of the internet.</p>
+
+          <div class="score-card" aria-label="Game scores">
+            <div class="score">
+              <span class="score-label">YOUR SCORE</span>
+              <strong id="score">00</strong>
+            </div>
+            <span class="score-divider" aria-hidden="true"></span>
+            <div class="score">
+              <span class="score-label">PERSONAL BEST</span>
+              <strong id="best">00</strong>
+            </div>
+          </div>
+
+          <button class="play-button" id="start-button" type="button">Start game <span aria-hidden="true">↗</span></button>
+          <p class="game-message" id="game-message" aria-live="polite">Press start when you're ready.</p>
+
+          <div class="how-to-play">
+            <h2>HOW TO PLAY</h2>
+            <p>Use the <kbd>↑</kbd> <kbd>←</kbd> <kbd>↓</kbd> <kbd>→</kbd> keys or <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> to turn. Eat the dots, don't hit the walls—or yourself.</p>
+            <div class="mobile-controls" aria-label="Touch controls">
+              <button type="button" data-direction="up" aria-label="Move up">↑</button>
+              <div>
+                <button type="button" data-direction="left" aria-label="Move left">←</button>
+                <button type="button" data-direction="down" aria-label="Move down">↓</button>
+                <button type="button" data-direction="right" aria-label="Move right">→</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="board-frame">
+          <div class="board-topline">
+            <span><span class="live-dot"></span> ARCADE MODE</span>
+            <button id="pause-button" class="pause-button" type="button" disabled>Pause <span aria-hidden="true">Ⅱ</span></button>
+          </div>
+          <canvas id="game-board" width="400" height="400" role="img" aria-label="Snake game board"></canvas>
+          <div class="board-footer">
+            <span>NO DOWNLOADS. NO DISTRACTIONS.</span>
+            <span>JUST ONE MORE TRY <span aria-hidden="true">↗</span></span>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span>MADE FOR THE FUN OF IT</span>
+        <span>BUILT WITH HTML, CSS &amp; JAVASCRIPT</span>
+      </footer>
+    </main>
+  </body>
+</html>

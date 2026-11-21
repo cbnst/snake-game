@@ -1,0 +1,342 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+:root {
+  color-scheme: dark;
+  font-family: "Space Grotesk", sans-serif;
+  color: #edf2e8;
+  background: #101812;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --muted: #8d9b8c;
+  --green: #b6f36b;
+  --line: #2a362b;
+  --mono: "DM Mono", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background-image: radial-gradient(ellipse at 74% 40%, #1b2b1d 0, transparent 48%);
+}
+
+button,
+a {
+  font: inherit;
+}
+
+.page {
+  width: min(1120px, calc(100% - 64px));
+  margin: 0 auto;
+}
+
+.topbar,
+.footer {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  font: 10px var(--mono);
+  letter-spacing: 0.1em;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #edf2e8;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.brand-mark {
+  color: var(--green);
+  font-size: 19px;
+}
+
+.status-chip {
+  color: var(--muted);
+}
+
+.status-dot,
+.live-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 10px #b6f36b80;
+  vertical-align: 1px;
+}
+
+.game-layout {
+  min-height: calc(100vh - 153px);
+  display: grid;
+  grid-template-columns: 0.86fr 1.14fr;
+  align-items: center;
+  gap: clamp(44px, 8vw, 112px);
+  padding: 48px 0;
+}
+
+.eyebrow,
+.score-label,
+.how-to-play h2,
+.board-topline,
+.board-footer {
+  font: 10px var(--mono);
+  letter-spacing: 0.12em;
+}
+
+.eyebrow {
+  margin: 0 0 16px;
+  color: var(--muted);
+}
+
+.eyebrow span {
+  color: var(--green);
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(64px, 8vw, 100px);
+  line-height: 0.95;
+  letter-spacing: -0.085em;
+}
+
+h1 span {
+  color: var(--green);
+}
+
+.intro {
+  max-width: 290px;
+  margin: 22px 0 32px;
+  color: #a9b5a7;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.score-card {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-bottom: 26px;
+}
+
+.score {
+  display: grid;
+  gap: 7px;
+}
+
+.score-label {
+  color: var(--muted);
+  font-size: 9px;
+}
+
+.score strong {
+  font: 26px var(--mono);
+}
+
+.score-divider {
+  width: 1px;
+  height: 36px;
+  background: var(--line);
+}
+
+.play-button {
+  min-width: 164px;
+  padding: 14px 17px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 0;
+  border-radius: 4px;
+  color: #172011;
+  background: var(--green);
+  cursor: pointer;
+  font-weight: 700;
+  transition: background 150ms ease, transform 150ms ease;
+}
+
+.play-button:hover {
+  background: #c9ff8a;
+  transform: translateY(-2px);
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+.game-message {
+  min-height: 18px;
+  margin: 10px 0 28px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.how-to-play {
+  max-width: 345px;
+  padding-top: 21px;
+  border-top: 1px solid var(--line);
+}
+
+.how-to-play h2 {
+  margin: 0 0 10px;
+  color: var(--green);
+}
+
+.how-to-play p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+kbd {
+  padding: 2px 5px;
+  border: 1px solid #3b493c;
+  border-radius: 3px;
+  color: #d3ddce;
+  font: 10px var(--mono);
+}
+
+.board-frame {
+  padding: 14px;
+  border: 1px solid #374438;
+  border-radius: 7px;
+  background: #131d15;
+  box-shadow: 0 28px 80px #00000038;
+}
+
+.board-topline,
+.board-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--muted);
+}
+
+.board-topline {
+  min-height: 31px;
+  padding: 0 2px 10px;
+  font-size: 9px;
+}
+
+.live-dot {
+  width: 6px;
+  height: 6px;
+}
+
+.pause-button {
+  padding: 4px 0 4px 8px;
+  border: 0;
+  color: #c1ccbd;
+  background: transparent;
+  cursor: pointer;
+  font-size: 11px;
+}
+
+.pause-button span {
+  margin-left: 5px;
+  color: var(--green);
+}
+
+.pause-button:disabled {
+  cursor: default;
+  opacity: 0.4;
+}
+
+#game-board {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 3px;
+  background: #0c140e;
+  image-rendering: pixelated;
+}
+
+.board-footer {
+  padding: 12px 2px 1px;
+  font-size: 8px;
+}
+
+.board-footer span:last-child span {
+  color: var(--green);
+}
+
+.footer {
+  min-height: 54px;
+  border-top: 1px solid var(--line);
+  border-bottom: 0;
+  color: #778477;
+  font-size: 8px;
+}
+
+.mobile-controls {
+  display: none;
+  margin-top: 16px;
+}
+
+.mobile-controls button {
+  width: 42px;
+  height: 38px;
+  margin: 3px;
+  border: 1px solid #3b493c;
+  border-radius: 4px;
+  color: #edf2e8;
+  background: #18231a;
+  font-size: 18px;
+  touch-action: manipulation;
+}
+
+@media (max-width: 760px) {
+  .page {
+    width: min(560px, calc(100% - 36px));
+  }
+
+  .game-layout {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 54px 0 36px;
+  }
+
+  .intro {
+    margin: 14px 0 22px;
+  }
+
+  .game-message {
+    margin-bottom: 20px;
+  }
+
+  .how-to-play {
+    max-width: none;
+  }
+
+  .mobile-controls {
+    display: block;
+    text-align: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .page {
+    width: calc(100% - 24px);
+  }
+
+  .board-frame {
+    padding: 9px;
+  }
+
+  .footer {
+    font-size: 7px;
+  }
+}
