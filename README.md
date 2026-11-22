@@ -4,7 +4,7 @@ A small, no-build Snake game made with plain HTML, CSS, and JavaScript. It runs 
 
 ## Play on your computer
 
-Open `index.html` in a browser. Use the arrow keys or WASD to move. On a phone, use the on-screen arrows. Press Space to pause or resume.
+Open `index.html` in a browser. Use the arrow keys or WASD to move. On a phone, use the on-screen arrows. The snake wraps around the board edges but still loses if it runs into itself. Press Space to pause or resume.
 
 ## Publish it with GitHub Pages
 

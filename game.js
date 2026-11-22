@@ -128,15 +128,14 @@ function endGame(message = "Game over. Press start to try again.") {
 function moveSnake() {
   direction = nextDirection;
   const head = {
-    x: snake[0].x + direction.x,
-    y: snake[0].y + direction.y
+    x: (snake[0].x + direction.x + gridSize) % gridSize,
+    y: (snake[0].y + direction.y + gridSize) % gridSize
   };
   const eating = head.x === food.x && head.y === food.y;
   const bodyToCheck = eating ? snake : snake.slice(0, -1);
-  const hitWall = head.x < 0 || head.x >= gridSize || head.y < 0 || head.y >= gridSize;
   const hitSnake = bodyToCheck.some((segment) => segment.x === head.x && segment.y === head.y);
 
-  if (hitWall || hitSnake) {
+  if (hitSnake) {
     endGame();
     return;
   }
