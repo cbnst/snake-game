@@ -5,6 +5,8 @@ const bestElement = document.querySelector("#best");
 const messageElement = document.querySelector("#game-message");
 const startButton = document.querySelector("#start-button");
 const pauseButton = document.querySelector("#pause-button");
+const surpriseButton = document.querySelector("#surprise-button");
+const surpriseNames = document.querySelector("#surprise-names");
 
 const gridSize = 20;
 const cellSize = canvas.width / gridSize;
@@ -195,6 +197,14 @@ document.querySelectorAll("[data-direction]").forEach((button) => {
 
 startButton.addEventListener("click", startGame);
 pauseButton.addEventListener("click", togglePause);
+surpriseButton.addEventListener("click", () => {
+  surpriseNames.hidden = false;
+  surpriseNames.classList.remove("is-revealing");
+  void surpriseNames.offsetWidth;
+  surpriseNames.classList.add("is-revealing");
+  surpriseButton.classList.add("is-active");
+  surpriseButton.setAttribute("aria-expanded", "true");
+});
 
 resetGame();
 setState("ready", "Press start when you're ready.");

@@ -39,6 +39,17 @@
           <button class="play-button" id="start-button" type="button">Start game <span aria-hidden="true">↗</span></button>
           <p class="game-message" id="game-message" aria-live="polite">Press start when you're ready.</p>
 
+          <div class="surprise-area">
+            <button class="surprise-button" id="surprise-button" type="button" aria-expanded="false" aria-controls="surprise-names">
+              Surprise! <span aria-hidden="true">✦</span>
+            </button>
+            <div class="surprise-names" id="surprise-names" aria-live="polite" hidden>
+              <span class="surprise-name">Samriddhi</span>
+              <span class="surprise-ampersand" aria-hidden="true">&amp;</span>
+              <span class="surprise-name">Nandini</span>
+            </div>
+          </div>
+
           <div class="how-to-play">
             <h2>HOW TO PLAY</h2>
             <p>Use the <kbd>↑</kbd> <kbd>←</kbd> <kbd>↓</kbd> <kbd>→</kbd> keys or <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> to turn. Eat the dots, don't hit the walls—or yourself.</p>
