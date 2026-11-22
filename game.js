@@ -10,6 +10,7 @@ const surpriseNames = document.querySelector("#surprise-names");
 
 const gridSize = 20;
 const cellSize = canvas.width / gridSize;
+const foodColors = ["#f3a75c", "#6bd4ff", "#d68cff", "#ff6b8a", "#ffe36e", "#67e8c1"];
 const directions = {
   up: { x: 0, y: -1 },
   right: { x: 1, y: 0 },
@@ -36,6 +37,7 @@ let snake;
 let direction;
 let nextDirection;
 let food;
+let lastFoodColor;
 let score;
 let best = savedBest;
 let state = "ready";
@@ -45,6 +47,7 @@ bestElement.textContent = String(best).padStart(2, "0");
 
 function resetGame() {
   snake = [{ x: 9, y: 10 }, { x: 8, y: 10 }, { x: 7, y: 10 }];
+  lastFoodColor = null;
   direction = directions.right;
   nextDirection = directions.right;
   score = 0;
@@ -55,13 +58,15 @@ function resetGame() {
 
 function placeFood() {
   let position;
+  const availableColors = foodColors.filter((color) => color !== lastFoodColor);
   do {
     position = {
       x: Math.floor(Math.random() * gridSize),
       y: Math.floor(Math.random() * gridSize)
     };
   } while (snake.some((segment) => segment.x === position.x && segment.y === position.y));
-  return position;
+  const color = availableColors[Math.floor(Math.random() * availableColors.length)];
+  return { ...position, color };
 }
 
 function draw() {
@@ -80,7 +85,7 @@ function draw() {
     context.stroke();
   }
 
-  context.fillStyle = "#f3a75c";
+  context.fillStyle = food.color;
   context.beginPath();
   context.arc(
     (food.x + 0.5) * cellSize,
@@ -92,7 +97,7 @@ function draw() {
   context.fill();
 
   snake.forEach((segment, index) => {
-    context.fillStyle = index === 0 ? "#d0ff8f" : "#8bc85c";
+    context.fillStyle = index === 0 ? "#d0ff8f" : segment.color || "#8bc85c";
     context.beginPath();
     context.roundRect(
       segment.x * cellSize + 2,
@@ -142,6 +147,8 @@ function moveSnake() {
 
   snake.unshift(head);
   if (eating) {
+    snake[snake.length - 1].color = food.color;
+    lastFoodColor = food.color;
     score += 1;
     scoreElement.textContent = String(score).padStart(2, "0");
     if (score > best) {
